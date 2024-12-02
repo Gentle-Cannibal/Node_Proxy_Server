@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "835cbff5-62cc-440a-9967-6e341af20015",
+		"name": "Node - Proxy Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32830009"
+	},
+	"item": [
+		{
+			"name": "NASA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/neo/rest/v1/feed?start_date={{start_date}}&end_date={{end_date}}&api_key={{api_key}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"neo",
+						"rest",
+						"v1",
+						"feed"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "{{start_date}}"
+						},
+						{
+							"key": "end_date",
+							"value": "{{end_date}}"
+						},
+						{
+							"key": "api_key",
+							"value": "{{api_key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Proxy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/meteors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"meteors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "specific Asteroid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/neo/rest/v1/neo/54491553?api_key={{api_key}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"neo",
+						"rest",
+						"v1",
+						"neo",
+						"54491553"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{api_key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_key",
+			"value": "ipuSr9OV0f1bFHkkCQ6IfI5rNVxWjOoXP04CojcO",
+			"type": "string"
+		},
+		{
+			"key": "start_date",
+			"value": "2024-11-25",
+			"type": "string"
+		},
+		{
+			"key": "end_date",
+			"value": "2024-11-29",
+			"type": "string"
+		}
+	]
+}
