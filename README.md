@@ -1,0 +1,1 @@
+Hi! 👋 This is my educational project "Node Proxy Server". I am studying Node.js and Express.js. This is a proxy server between NASA API and the consumer. To run the project, install dependencies with "npm i" and then use the npm script "dev" or enter "npm run dev" into the console.
