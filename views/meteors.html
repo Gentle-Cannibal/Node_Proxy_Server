@@ -1,0 +1,28 @@
+{% include "layout.html" %} 
+{% block content %}
+<h2>Meteorites</h2>
+{% if result.length %}
+<ul>
+  {% for item in result %}
+  <li><strong>ID:</strong> {{ item.id }}</li>
+  <li><strong>Name:</strong> {{ item.name }}</li>
+  <li><strong>Diameter (meters):</strong> {{ item.diameter_meters }}</li>
+  <li>
+    <strong>Potentially Hazardous:</strong> {{
+    item.is_potentially_hazardous_asteroid }}
+  </li>
+  <li>
+    <strong>Close Approach Date:</strong> {{ item.close_approach_date_full }}
+  </li>
+  <li>
+    <strong>Relative Velocity (km/s):</strong> {{ item.relative_velocity_kps }}
+  </li>
+  <li>************************************</li>
+  {% endfor %}
+</ul>
+{% elif result.numberOfMeteorites %}
+<p>Number of meteorites: {{ result.numberOfMeteorites }}</p>
+{% else %}
+<p>No meteorites data available.</p>
+{% endif %} 
+{% endblock %}
