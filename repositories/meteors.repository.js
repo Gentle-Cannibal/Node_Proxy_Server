@@ -6,9 +6,9 @@ import { statusCodes, errorMessages } from "../config/constants.js";
 const { INTERNAL_SERVER_ERROR } = statusCodes;
 const { HTTP_ERROR_MESSAGE, NO_RESPONSE_MESSAGE } = errorMessages;
 
-async function getMeteorsFromStorage() {
+async function getMeteorsFromStorage(startDate, endDate) {
   try {
-    const url = getUrl();
+    const url = getUrl(startDate, endDate);
     return await axios.get(url);
   } catch (error) {
     if (error.response) {

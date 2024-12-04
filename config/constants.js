@@ -16,4 +16,15 @@ const consoleFontColors = {
   RED: "\x1b[31m",
 };
 
-export { statusCodes, errorMessages, consoleFontColors, userMessages };
+const dateConstants = {
+  dateFormat: "yyyy-MM-dd",
+  daysInWeek: 7,
+};
+
+export {
+  statusCodes,
+  errorMessages,
+  consoleFontColors,
+  userMessages,
+  dateConstants,
+};
