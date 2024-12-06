@@ -7,12 +7,12 @@
 	},
 	"item": [
 		{
-			"name": "NASA",
+			"name": "NASA Asteroids",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.nasa.gov/neo/rest/v1/feed?start_date={{start_date}}&end_date={{end_date}}&api_key={{api_key}}",
+					"raw": "https://api.nasa.gov/neo/rest/v1/feed?start_date=2024-11-15&end_date=2024-12-02&api_key={{api_key}}",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -28,11 +28,11 @@
 					"query": [
 						{
 							"key": "start_date",
-							"value": "{{start_date}}"
+							"value": "2024-11-15"
 						},
 						{
 							"key": "end_date",
-							"value": "{{end_date}}"
+							"value": "2024-12-02"
 						},
 						{
 							"key": "api_key",
@@ -44,26 +44,37 @@
 			"response": []
 		},
 		{
-			"name": "Proxy",
+			"name": "Proxy Last Rover Photo",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "api_key",
+							"value": "{{api_key}}",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
-					"raw": "http://localhost:4000/meteors",
+					"raw": "http://localhost:4000/api/mars-rover-photos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "4000",
 					"path": [
-						"meteors"
+						"api",
+						"mars-rover-photos"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "specific Asteroid",
+			"name": "NASA specific Asteroid",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -81,6 +92,37 @@
 						"v1",
 						"neo",
 						"54491553"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{api_key}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NASA Latest Rover Photos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key={{api_key}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"curiosity",
+						"latest_photos"
 					],
 					"query": [
 						{
@@ -119,16 +161,6 @@
 		{
 			"key": "api_key",
 			"value": "ipuSr9OV0f1bFHkkCQ6IfI5rNVxWjOoXP04CojcO",
-			"type": "string"
-		},
-		{
-			"key": "start_date",
-			"value": "2024-11-25",
-			"type": "string"
-		},
-		{
-			"key": "end_date",
-			"value": "2024-11-29",
 			"type": "string"
 		}
 	]
