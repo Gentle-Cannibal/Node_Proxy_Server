@@ -9,7 +9,7 @@ const { RED } = consoleFontColors;
 const { INTERNAL_SERVER_ERROR } = statusCodes;
 const { ERROR_HAPPENED_MESSAGE } = userMessages;
 
-function errorHandler(error, request, response, next) {
+function commonErrorHandler(error, request, response, next) {
   if (error instanceof SourceError) {
     console.error(RED, error.stack);
     response
@@ -24,4 +24,4 @@ function errorHandler(error, request, response, next) {
   }
 }
 
-export default errorHandler;
+export default commonErrorHandler;
