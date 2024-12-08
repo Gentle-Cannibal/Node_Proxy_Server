@@ -1,7 +1,9 @@
 import express from "express";
 import getMeteorsService from "../services/meteors.service.js";
-import getDates from "../helpers/dateHelper.js";
-import createPath from '../utils/createPath.js';
+import { getDates } from "../helpers/dateHelper.js";
+import createPath from "../utils/createPath.js";
+import commonValidator from "../validators/commonValidator.js";
+import meteorsValidator from "../validators/meteorsValidator.js";
 
 const meteorsController = express.Router();
 
@@ -10,6 +12,8 @@ async function getMeteors(request, response, next) {
     const { date, wereDangerousMeteors, count } = request.query;
 
     const { startDate, endDate } = getDates(date);
+
+    commonValidator(meteorsValidator, { startDate, endDate });
 
     const result = await getMeteorsService(
       startDate,
@@ -29,6 +33,8 @@ async function getMeteorsPage(request, response, next) {
     const { date, wereDangerousMeteors, count } = request.query;
 
     const { startDate, endDate } = getDates(date);
+
+    commonValidator(meteorsValidator, { startDate, endDate });
 
     const result = await getMeteorsService(
       startDate,

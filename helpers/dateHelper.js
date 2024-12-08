@@ -1,5 +1,5 @@
 import { dateConstants } from "../config/constants.js";
-import { subDays, format } from "date-fns";
+import { subDays, addDays, format } from "date-fns";
 
 const { dateFormat, daysInWeek } = dateConstants;
 
@@ -13,14 +13,18 @@ function getDates(date) {
       endDate = date.end;
     } else {
       startDate = date;
-      endDate = format(new Date(), dateFormat);
+      endDate = format(addDays(dateParser(date), daysInWeek), dateFormat);
     }
   } else {
     startDate = format(subDays(new Date(), daysInWeek), dateFormat);
     endDate = format(new Date(), dateFormat);
   }
 
-  return {startDate, endDate};
+  return { startDate, endDate };
 }
 
-export default getDates;
+function dateParser(date) {
+  return new Date(Date.parse(date));
+}
+
+export { getDates, dateParser };
