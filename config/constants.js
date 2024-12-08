@@ -1,4 +1,5 @@
 const statusCodes = {
+  BAD_REQUEST: 400,
   INTERNAL_SERVER_ERROR: 500,
 };
 
@@ -21,10 +22,16 @@ const dateConstants = {
   daysInWeek: 7,
 };
 
+const validationValues = {
+  MIN_LENGTH_API_KEY: 30,
+  MAX_LENGTH_API_KEY: 50,
+}
+
 export {
   statusCodes,
   errorMessages,
   consoleFontColors,
   userMessages,
   dateConstants,
+  validationValues,
 };
