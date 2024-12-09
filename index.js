@@ -1,7 +1,8 @@
 import config from "./config/config.js";
 import express from "express";
-import errorHandler from "./utils/errorHandler.js";
+import commonErrorHandler from "./utils/commonErrorHandler.js";
 import meteorsController from "./controllers/meteors.controller.js";
+import marsRoverPhotosController from "./controllers/marsRoverPhotos.controller.js";
 import nunjucks from "nunjucks";
 
 const { PORT } = config;
@@ -15,13 +16,16 @@ nunjucks.configure("views", {
   express: app,
 });
 
+app.use(express.urlencoded({ extended: false }));
+
 app.use(meteorsController);
+app.use(marsRoverPhotosController);
 
 app.get("/", function (request, response) {
   response.send("Page not found!");
 });
 
-app.use(errorHandler);
+app.use(commonErrorHandler);
 
 app.listen(PORT, () => {
   console.log(`The server running on port ${PORT}`);
