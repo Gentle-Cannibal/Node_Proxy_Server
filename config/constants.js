@@ -1,4 +1,5 @@
 const statusCodes = {
+  BAD_REQUEST: 400,
   INTERNAL_SERVER_ERROR: 500,
 };
 
@@ -19,6 +20,7 @@ const consoleFontColors = {
 const dateConstants = {
   dateFormat: "yyyy-MM-dd",
   daysInWeek: 7,
+  dateExpression: /^\d\d\d\d-\d\d-\d\d\b/,
 };
 
 export {

@@ -6,6 +6,7 @@ const marsRoverPhotosController = express.Router();
 async function receiveLastMarsRoverPhoto(request, response, next) {
   try {
     const result = await receiveLastMarsRoverPhotoService(request.body.api_key);
+
     response.send(`<img src=${result} alt="Last Rover Photo">`);
   } catch (error) {
     next(error);

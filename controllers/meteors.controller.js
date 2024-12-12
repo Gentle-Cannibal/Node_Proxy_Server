@@ -1,7 +1,9 @@
 import express from "express";
 import getMeteorsService from "../services/meteors.service.js";
-import getDates from "../helpers/dateHelper.js";
-import createPath from '../utils/createPath.js';
+import { getDates } from "../helpers/dateHelper.js";
+import createPath from "../utils/createPath.js";
+import commonValidator from "../validators/commonValidator.js";
+import { dateSchema } from "../validators/schemas.js";
 
 const meteorsController = express.Router();
 
@@ -43,7 +45,7 @@ async function getMeteorsPage(request, response, next) {
   }
 }
 
-meteorsController.get("/api/meteors", getMeteors);
-meteorsController.get("/meteors", getMeteorsPage);
+meteorsController.get("/api/meteors", commonValidator(dateSchema), getMeteors);
+meteorsController.get("/meteors", commonValidator(dateSchema), getMeteorsPage);
 
 export default meteorsController;
