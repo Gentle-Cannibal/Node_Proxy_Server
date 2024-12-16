@@ -5,6 +5,8 @@ import meteorsController from "./controllers/meteors.controller.js";
 import marsRoverPhotosController from "./controllers/marsRoverPhotos.controller.js";
 import nunjucks from "nunjucks";
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
 const { PORT } = config;
 
 const app = express();
